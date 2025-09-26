@@ -82,6 +82,12 @@ function openLoginModal() {
     const modal = document.getElementById('loginModal');
     
     if (overlay && modal) {
+        // First, ensure all other modals are hidden
+        const allModals = document.querySelectorAll('.modal');
+        allModals.forEach(m => {
+            if (m !== modal) m.style.display = 'none';
+        });
+
         overlay.classList.add('active');
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';

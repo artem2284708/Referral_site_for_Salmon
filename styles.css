@@ -1859,3 +1859,252 @@ body {
         transform: scale(1) translateY(0);
     }
 }
+
+/* --------------------------------------------
+   Responsive Fixes (non-destructive overrides)
+   -------------------------------------------- */
+
+/* Containers: allow fluid widths instead of hard 1200px blocks */
+.hero-container,
+.features-container,
+.how-it-works-container,
+.testimonials-container,
+.referral-form-container,
+.footer-container {
+    width: 100% !important;
+}
+
+/* Header: remove rigid gap/widths to prevent overflow on mid-size screens */
+.header-container {
+    gap: 20px !important;
+}
+
+.nav-menu {
+    width: auto !important;
+    height: auto !important;
+    flex-wrap: wrap !important;
+}
+
+/* Hero: avoid fixed widths/heights so text wraps naturally */
+.hero-content,
+.hero-text {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.hero-title,
+.hero-description {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* Feature/testimonial sections: make grids fluid */
+.features-content,
+.features-text,
+.features-grid,
+.testimonials-content,
+.testimonials-text,
+.testimonials-grid {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.feature-card,
+.testimonial-card {
+    width: 100%;
+    max-width: 540px;
+}
+
+/* Secondary features description rows become fluid */
+.features-secondary .features-description-grid,
+.features-secondary .features-description-left,
+.features-secondary .features-description-right {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* Referral form: cards and buttons stretch to container */
+.referral-form-content,
+.referral-form-card,
+.primary-button {
+    width: 100% !important;
+}
+
+/* Footer: reduce giant gaps, allow wrapping */
+.footer,
+.footer-container {
+    gap: 40px !important;
+    height: auto !important;
+    flex-wrap: wrap !important;
+}
+
+.footer-left,
+.footer-nav {
+    width: 100% !important;
+}
+
+/* Medium screens: tighten paddings so content fits comfortably */
+@media (max-width: 1200px) {
+    .header-container,
+    .hero,
+    .features,
+    .how-it-works,
+    .testimonials,
+    .referral-form,
+    .referral-form-page,
+    .footer {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    .features-grid,
+    .testimonials-grid {
+        justify-content: center !important;
+    }
+
+    .footer-container {
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center;
+    }
+}
+
+/* Small screens: stack footer items and ensure full-width elements */
+@media (max-width: 768px) {
+    .footer-left,
+    .footer-nav {
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center;
+        gap: 20px !important;
+    }
+
+    /* Referral form: ensure stacking and auto heights on small screens */
+    .referral-form-content,
+    .referral-form-card,
+    .form-fields,
+    .form-field {
+        height: auto !important;
+    }
+
+    .referral-form-card {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .primary-button,
+    .secondary-button {
+        width: 100% !important;
+        margin-top: 12px !important;
+    }
+}
+
+/* Restore desktop layout where needed to avoid regressions */
+@media (min-width: 1025px) {
+    /* Header: revert original spacing and prevent wrapping */
+    .header-container {
+        gap: 425px !important;
+    }
+    .nav-menu {
+        width: 631px !important;
+        height: 20px !important;
+        flex-wrap: nowrap !important;
+    }
+
+    /* Hero: revert widths and absolute image positioning to avoid overlap */
+    .hero-content {
+        width: 720px !important;
+        height: 639px !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
+    .hero-text {
+        width: 480px !important;
+        height: 460px !important;
+    }
+    .hero-title,
+    .hero-description {
+        width: 480px !important;
+        height: auto !important;
+        text-align: center;
+    }
+    .hero-image {
+        position: absolute !important;
+        left: 720px !important;
+        top: 97px !important;
+        width: 600px !important;
+        height: 639px !important;
+        margin-top: 0 !important;
+    }
+
+    /* Referral form: revert original desktop width */
+    .referral-form-card {
+        width: 827px !important;
+    }
+    .primary-button {
+        width: 827px !important;
+    }
+}
+
+/* Ensure consistent header height on all large viewports */
+@media (min-width: 1025px) {
+    .header {
+        height: 76px !important;
+    }
+    .header-container {
+        height: 76px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        align-items: center !important;
+    }
+}
+
+/* Small gadgets refinement for referral form */
+@media (max-width: 480px) {
+    .referral-form-title {
+        font-size: 32px !important;
+        line-height: 40px !important;
+        margin-bottom: 40px !important;
+        width: 100% !important;
+    }
+
+    .referral-form-card {
+        padding: 20px 16px !important;
+        gap: 16px !important;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.06) !important;
+        border-radius: 10px !important;
+        height: auto !important;
+    }
+
+    .form-fields {
+        gap: 16px !important;
+        height: auto !important;
+    }
+
+    .form-field {
+        gap: 10px !important;
+        height: auto !important;
+    }
+
+    .field-label {
+        font-size: 16px !important;
+        line-height: 22px !important;
+    }
+
+    .field-description {
+        font-size: 12px !important;
+        line-height: 16px !important;
+    }
+
+    .form-input {
+        height: 40px !important;
+        font-size: 14px !important;
+        line-height: 20px !important;
+        padding: 8px 12px !important;
+    }
+
+    .primary-button {
+        height: 48px !important;
+        border-radius: 10px !important;
+    }
+}
