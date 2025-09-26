@@ -1,6 +1,20 @@
 // Generate referral link from phone using a secret key (JS port of your Python)
 const secretKey = 'NEA_Salmon_Project';
 
+// Scroll to contact section
+function scrollToContact() {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        // If contact section doesn't exist, scroll to referral form section
+        const referralSection = document.getElementById('referral-form');
+        if (referralSection) {
+            referralSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+}
+
 function encodePhone(phone) {
     const cleanPhone = String(phone || '').replace(/\D+/g, '');
     let mixed = '';
